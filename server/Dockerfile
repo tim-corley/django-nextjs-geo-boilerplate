@@ -1,6 +1,9 @@
 #---- Base python ----
 FROM python:3.9-slim-bullseye as base
 
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
+RUN chmod +x /wait
+
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
