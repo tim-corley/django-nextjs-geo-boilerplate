@@ -30,6 +30,38 @@ To get a local copy of this template up and running on your machine, follow thes
 ### Installation
 - Clone the repo `git clone https://github.com/akshat2602/django-nextjs-boilerplate.git`
 - Change the current directory to the template `cd django-nextjs-boilerplate`
+- Add a .env.dev file at project root & create/add following environment variables:
+```
+#PostgreSQL Config
+
+DB_ENGINE=django.db.backends.postgresql
+POSTGRES_DB=db
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+DB_HOST=db
+DB_PORT=5432
+
+#Django Config Variables
+
+PYTHONUNBUFFERED=True
+DJANGO_DEBUG=True
+
+DJANGO_SUPERUSER_USERNAME=admin
+DJANGO_SUPERUSER_EMAIL=admin@admin.com
+DJANGO_SUPERUSER_PASSWORD=admin
+SECRET_KEY=<DJANGO-INSECURE-KEY>
+DEFAULT_USER=guest
+DEFAULT_PASS=guest
+
+#Production Config
+GUNICORN_WORKERS=5
+
+# MAPQUEST DEV | GEO CODER
+GEOCODER_API=<MAPQUEST-DELOPER-API-KEY>
+
+# DOCKER-COMPOSE
+WAIT_HOSTS=db:5432
+```
 - Build the docker containers`docker-compose -f docker-compose.dev.yml build` for the dev containers and `docker-compose -f docker-compose.prod.yml build` for the prod containers
 - Run the docker containers`docker-compose -f docker-compose.dev.yml up` for the dev containers and `docker-compose -f docker-compose.prod.yml up` for the prod containers
 
